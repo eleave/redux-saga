@@ -1,0 +1,22 @@
+.nav {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .links {
+    height: 100%;
+  }
+  a {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    &:hover,
+    &.active {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}

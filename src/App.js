@@ -1,24 +1,14 @@
-import { useSelector, useDispatch } from "react-redux";
-import { getNews } from "./redux/actions/actionCreator";
-import News from "./components/news/News";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
-const App = () => {
-  const latestNews = useSelector(store => store?.news?.latestNews || []);
-  const popularNews = useSelector(store => store?.news?.popularNews || []);
-  const { latestNewsError, popularNewsError } = useSelector(store => store?.errors || {});
-  const dispatch = useDispatch();
-
-  const handleNews = () => {
-    dispatch(getNews());
-  }
-
-  return (
-    <div className="App">
-      <button onClick={handleNews}>Get News</button>
-      <News news={latestNews} error={latestNewsError} title="Latest News" />
-      <News news={popularNews} error={popularNewsError} title="Popular News" />
-    </div>
-  );
-}
+const App = ({ children }) => (
+  <>
+    <Header />
+    <main>
+      {children}
+    </main>
+    <Footer />
+  </>
+);
 
 export default App;
