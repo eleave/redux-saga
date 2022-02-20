@@ -1,4 +1,4 @@
-import { 
+import {
   SET_LATEST_NEWS,
   SET_POPULAR_NEWS,
 } from "../constants";

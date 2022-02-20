@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
+import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
 import Home from './pages/home/Home'
 import LatestNews from './pages/latest-news/Latest-News'
 import PopularNews from './pages/popular-news/Popular-News'
@@ -11,13 +10,12 @@ import store from './redux/store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-const history = createBrowserHistory();
+import { history } from './redux/reducers/index'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router history={history}>
+      <ConnectedRouter history={history}>
         <App>
           <Switch>
             <Route path="/" exact>
@@ -31,7 +29,7 @@ ReactDOM.render(
             </Route>
           </Switch>
         </App>
-      </Router>
+      </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
